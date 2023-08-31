@@ -17,7 +17,7 @@ with open('scaler.pkl', 'rb') as scaler_file:
 normalized_df = pd.read_csv('data_normalized.csv')
 
 def prediction_view(request):
-    last_8_rows = normalized_df.iloc[-16:-8]  # Prend les 8 dernières lignes
+    last_8_rows = normalized_df.iloc[-24:-16]  # Prend les 8 dernières lignes
     input_sequence = last_8_rows.to_numpy()
     
     predicted_temperature = predict_and_plot3(input_sequence, trained_model, loaded_scaler)
