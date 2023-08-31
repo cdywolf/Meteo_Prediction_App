@@ -22,7 +22,7 @@ def prediction_view(request):
     
     predicted_temperature = predict_and_plot3(input_sequence, trained_model, loaded_scaler)
     
-    return render(request, 'prediction.html', {"predicted_temperature": predicted_temperature})
+    return render(request, 'prediction1.html', {"predicted_temperature": predicted_temperature})
 
 
 def predict_and_plot3(sequence, model, scaler):
