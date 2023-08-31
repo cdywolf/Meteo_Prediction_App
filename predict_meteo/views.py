@@ -50,7 +50,21 @@ def predict_and_plot3(sequence, model, scaler):
     plt.grid()
     
     # Sauvegarder le plot comme image
-    plt.savefig("static/images/prediction.png")
+    # Chemin local vers le modèle sauvegardé
+    model_path = os.path.abspath(model_filename)
+
+    # Chemin local vers le dossier où se trouve le dépôt GitHub cloné
+    github_repo_path = os.path.abspath(repo_path)
+
+    # Chemin local vers le dossier où se trouve le dépôt GitHub et où vous souhaitez sauvegarder l'image
+    github_images_path = os.path.join(github_repo_path, "static/images")
+
+    # Chemin d'enregistrement de l'image dans le dépôt GitHub
+    github_image_path = os.path.join(github_images_path, "prediction.png")
+
+    # Sauvegarder le plot
+    plt.savefig(github_image_path)
+
     
     return round(predicted_temperature_reelle, 2)
 
